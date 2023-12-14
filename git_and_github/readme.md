@@ -71,6 +71,3 @@ Two methods:
     - for going back one commit- `git reset HEAD~1`
     - for going back many commits- `git reset --hard commit_hash` <br>
     (note the commit's hash and type it here)
-
-### 4. Forking Code
-
