@@ -3,18 +3,18 @@ document.addEventListener("DOMContentLoaded", function () {
     function liveTime() {
         let now = new Date();
 
-        let day_in_words = day(now);
-        let hours = hoursnow(now);
-        let second = seconds(now);
-        let minute = minutes(now);
-        let month = months(now);
+        let day_in_words_latest = day(now);
+        let hours_latest = hoursnow(now);
+        let second_latest = seconds(now);
+        let minute_latest = minutes(now);
+        let month_latest = months(now);
 
-        document.querySelector(".hours").innerHTML = hours[0];
-        document.querySelector(".min").innerHTML = minute;
-        document.querySelector(".sec").innerHTML = second + " " + hours[1];
-        document.querySelector(".dayspan").innerHTML = day_in_words;
+        document.querySelector(".hours").innerHTML = hours_latest[0];
+        document.querySelector(".min").innerHTML = minute_latest;
+        document.querySelector(".sec").innerHTML = second_latest + " " + hours_latest[1];
+        document.querySelector(".dayspan").innerHTML = day_in_words_latest;
         document.querySelector(".date").innerHTML = now.getDate();
-        document.querySelector(".month").innerHTML = month;
+        document.querySelector(".month").innerHTML = month_latest;
         document.querySelector(".year").innerHTML = now.getFullYear();
     }
 
@@ -67,5 +67,5 @@ function minutes(now) {
 function months(now) {
     let mnth = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
 
-    return mnth[now.getMonth() + 1]; //get month returns with 0 as January. So, we need to add 1 to get desired result
+    return mnth[now.getMonth()]; //get month returns with 0 as January. So, we need to add 1 to get desired result
 }
