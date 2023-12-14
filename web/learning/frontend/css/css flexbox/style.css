@@ -1,0 +1,33 @@
+html{
+    font-size: 3rem;
+}
+
+.container{
+    min-height:5rem;
+    border:2px solid black;
+    background-color: #333;
+    display: flex; 
+    flex-direction: row; /*by default its row*/
+    gap: 1rem;
+    justify-content:center; /*the best among these are space-arounf, space between and spaced evenly*/
+    align-items: center;
+    flex-wrap: wrap; /*without wrap, when screen is resized, the contents in 'box' overflow from the 'container'. Wrap allows the items to be overflowed*/
+}
+
+.box{
+    height: 1rem;
+    width: 1rem;
+    border:2px solid wheat;
+    background-color: white;
+
+    /*trick to align items inside a box:-*/
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex: 1 1 150px; /*flex: flex-grow flex-shrink flex-basis*/
+}
+
+.box:nth-child(3){
+    flex: 2 2 150px; /*box 3 increases faster than others*/
+}

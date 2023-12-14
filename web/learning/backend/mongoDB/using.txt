@@ -1,0 +1,9 @@
+Using mongoDB:
+- mongod to start a server
+- mongosh to connect to the server
+
+* Use hello- Uses the hello db. If not present, creates it
+* show dbs- Shows all present databases
+* show collections- Shows all present collections
+* db.text- creates a file with name Hello.text 
+* db.text.insertOne({"name":"Sayan"}) -inserting something

@@ -1,0 +1,13 @@
+.btn{
+    background-color: white;
+    border: 2px solid black;
+    outline: 2px solid black;
+    padding:5px 10px;
+}
+
+.btn:hover{
+    color: whitesmoke;
+    background-color: black;
+    border: 2px solid white;
+    outline: 2px solid black;
+}

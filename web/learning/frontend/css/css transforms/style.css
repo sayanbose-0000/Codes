@@ -1,0 +1,33 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.container{
+    background-color: antiquewhite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height:300px;
+}
+
+.box{
+    background-image: url(gear-solid.svg);
+    background-size: 9.5rem;
+    
+    --size-of-box:150px;
+    /* background-color: #333;
+    color: aliceblue; */
+    height: var(--size-of-box);
+    width: var(--size-of-box);
+    border-radius: calc(var(--size-of-box)/2);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition:transform 5s ease-in-out;
+}
+
+.box:hover{
+    transform: rotate(360deg);
+}

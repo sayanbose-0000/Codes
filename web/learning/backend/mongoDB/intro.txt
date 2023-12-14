@@ -1,0 +1,18 @@
+- RDBMS- Relational Data Base Management System
+- Data stored in BSON format
+- Data stored as documents, so, it is known as document oriented database
+
+- Relational    |    Mongo DB
+  ============================
+  -DataBase     |    -Database
+  -Tables       |    -Collections
+  -Rows         |    -Documents
+
+- Default port for mongoDB- 27017
+- mongod is the host process for database
+- mongo is a command line shell that connects to a specific instance of mongod
+
+
+Using mongoDB:
+- mongod to start a server
+- mongosh to connect to the server
