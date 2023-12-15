@@ -6,10 +6,17 @@ let handleNameChange = () => {
     return myNames[randomIdx];
 }
 
+let handleClick = (name) => {
+    console.log(`${name} was clicked`);
+}
+
 const Content = () => {
     return (
         <main>
-            Hello {handleNameChange()}
+            <p className="paragraph">
+                Hello {handleNameChange()}
+                <button onClick={() => { handleClick('Sayan') }}>Click Me</button>
+            </p>
         </main>
     );
 };
