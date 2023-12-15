@@ -1,21 +1,20 @@
 import React from "react";
 
-let handleNameChange = () => {
-    let myNames = ["Sayan", "Ayan", "Gayan", "Payan", "Ryan"];
-    let randomIdx = Math.floor(Math.random() * myNames.length);
-    return myNames[randomIdx];
-}
+const Content = () => { // always use react hooks at top level of returning function (Component function)
 
-let handleClick = (name) => {
-    console.log(`${name} was clicked`);
-}
+    const [name, setName] = React.useState("Sayan"); // "Sayan" is the default state when page loads
 
-const Content = () => {
+    let handleNameChange = () => {
+        let myNames = ["Sayan", "Ayan", "Gayan", "Payan", "Ryan"];
+        let randomIdx = Math.floor(Math.random() * myNames.length);
+        setName(myNames[randomIdx]);
+    }
+
     return (
         <main>
             <p className="paragraph">
-                Hello {handleNameChange()}
-                <button onClick={() => { handleClick('Sayan') }}>Click Me</button>
+                Hello {name}
+                <button onClick={handleNameChange}>Click Me</button>
             </p>
         </main>
     );
