@@ -1,7 +1,7 @@
 import React from "react";
 
 const Footer = () => {
-    
+
     const [counter, setCounter] = React.useState(0);
 
     let today = new Date();

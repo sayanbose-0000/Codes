@@ -15,6 +15,7 @@ const Content = () => { // always use react hooks at top level of returning func
             <p className="paragraph">
                 Hello {name}
                 <button onClick={handleNameChange}>Click Me</button>
+                <button>Hello World</button>
             </p>
         </main>
     );
