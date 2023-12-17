@@ -36,7 +36,7 @@
 
     git push origin main
     ```
-    (` git branch -M main` is necessaty- master is the default branch name in git. However, due to changes in github policies, github calls it main branch. So, we rename the master branch to main branch for the same)
+    (` git branch -M main` is necessary- master is the default branch name in git. However, due to changes in github policies, github calls it main branch. So, we rename the master branch to main branch for the same)
 
 + check origin- `git remote -v`
 + check branch- `git branch`
