@@ -5,8 +5,8 @@ import Footer from "./Components/Footer";
 function App() {
   return (
     <>
-      <Header></Header>
-      <Content></Content>
+      <Header para="This is prop para" title="This is prop heading"></Header> {/* Applying props to Header and using it in Header.js */}
+      <Content></Content> 
       <Footer></Footer>
     </>
   );

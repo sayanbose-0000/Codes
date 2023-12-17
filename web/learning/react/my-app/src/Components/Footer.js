@@ -1,4 +1,5 @@
 import React from "react";
+import './Styles/style.css';
 
 const Footer = () => {
 
@@ -15,11 +16,11 @@ const Footer = () => {
     }
 
     return (
-        <footer>
-            <p className="para">Copyright &copy; {today.getFullYear()}</p>
-            <button onClick={handelDecrease}>-</button> {/* del */}
-            <p style={{ display: 'inline-block' }}>{counter}</p>
-            <button onClick={handleIncrease}>+</button> {/* del */}
+        <footer className="Footer">
+            <button onClick={handelDecrease}> - </button> {/* del */}
+            <p style={{ display: 'inline-block' }}> {counter} </p>
+            <button onClick={handleIncrease}> + </button> {/* del */}
+            <p className="para"> Copyright &copy; {today.getFullYear()} </p>
         </footer >
     );
 };

@@ -1,48 +1,21 @@
 import React from "react";
+import './Styles/style.css';
 
-const Header = () => {
-    const [items, setItems] = React.useState([
-        {
-            id: 1,
-            checked: false,
-            item: "Potato",
-        },
-        {
-            id: 2,
-            checked: false,
-            item: "Tomato",
-        },
-        {
-            id: 3,
-            checked: false,
-            item: "Cauliflower",
-        },
-    ])
-
-    const handleChecked = (id) => {
-        const listItems = items.map(item => item.id === id ? { ...item, checked: !item.checked } : item);
-        setItems(listItems);
-    };
-
-    const handleDelete = (id) => {
-        const listItems = items.filter(item => item.id !== id);
-        setItems(listItems);
-    };
+const Header = (props) => {
 
     return (
-        <header>
-            <h1 className="heading">Groceries List</h1>
-            <ul>
-                {items.map((item) => (
-                    <li className="item" key={item.id}>
-                        <input type="checkbox" checked={item.checked} onChange={() => { handleChecked(item.id) }} />
-                        <label htmlFor="" style={item.checked ? { textDecoration: 'line-through' } : null}>{item.item}</label>
-                        <button onClick={() => { handleDelete(item.id) }}>Del</button>
-                    </li>
-                ))}
-            </ul>
+        <header className="Header">
+            <h1>{props.title}</h1> {/* props used */}
+            <p>{props.para}</p> {/* props used */}
+            
         </header>
     );
+};
+
+Header.defaultProps = {
+    /* Default props are used when there is a problem with the passed prop (eg: and API given as prop isn't working) */
+    title: "I am a title and I am not available",
+    para: "I am a paragraph and I am not available"
 };
 
 export default Header;
