@@ -1,0 +1,25 @@
+body{
+    padding: 10%;
+    font-size: 2rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+a{
+    text-decoration: underline;
+    cursor: pointer;
+    color:hsl(207,44%,49%);
+}
+
+a:visited{
+    color:purple;
+}
+
+a:hover,a:focus{ /*focus is used when we go to there by pressing tab*/
+
+    
+    color:hsl(180, 44%, 49%); /*to use complementary colours for a and a:hover, we can use hsl values and only change the first number. We can also use opacity property*/
+}
+
+a:active{
+    color: red;
+}

@@ -1,0 +1,26 @@
+*{
+    padding: 0;
+    margin:0;
+    box-sizing:border-box;
+}
+
+:root{ /*used to declare global variable, accessible everywhere*/
+    --sample-global-color:green;
+    --sample-size:200px;
+}
+
+.box{
+    --box-color:#333; /*creation of variable*/
+    /*scope of the variable is local, i.e., --box-color is not accessible globally, we can only access it locally*/
+
+    width:var(--sample-size);
+    height:var(--sample-size);
+    
+    background-color: var(--box-color); /*use of variable*/
+    margin:5px;
+    border: 2px solid var(--sample-global-color);
+}
+
+.container{
+    display: flex;
+}

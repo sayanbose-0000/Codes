@@ -1,0 +1,31 @@
+body{
+    padding: 5% 10%;
+    font-size: 1.5rem;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+h1, h2{
+    text-align: center;
+}
+
+ol{
+    list-style-type: decimal-leading-zero;
+    text-align: center;
+    list-style-position: inside;
+}
+
+ul{
+    list-style-image: url(img/check-solid.svg); /*setting img as list style*/
+    text-align: center;
+    list-style-position: inside; /*by default, some browsers like in chrome, when we center the list elements, the bullets still are there in the left most corner. So, list-stylw-position is used to move it close to the text*/
+}
+
+ul li:nth-child(2){
+    color:red; /*selects only the nth item (ie, nth child). We can also pass odd/even inside the brackers*/
+}
+
+::marker{ /*pseudo-elemenet*/
+    color: rgb(14, 197, 197); /*the ol markers don't change in color bacause it is an image. If it was a normal bullet or something of that sort, it would have changed*/
+    
+    /* content:">>>>" ...we can type anything as the list-style*/
+}

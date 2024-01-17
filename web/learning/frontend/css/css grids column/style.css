@@ -1,0 +1,19 @@
+.container{
+    display: grid;
+    /* grid-template-columns: 300px 100px 100px; 
+    asks to create 3 columns of 300, 100 and 100 px respectively */
+
+    /* grid-template-columns: 300px auto 100px; */
+
+    /* grid-template-columns: 1fr 4fr 1fr; 
+    fr means fractions */
+
+    grid-template-columns: repeat(3,auto); /*repeats the property auto for 3 items(i.e., 3 columns with auto size), other values than auto can also be used*/
+    gap: 1rem; /*sets gap between grid items. There is a property named 'grid-gap' too, but that is deprecated. Use 'gap' for the same*/
+}
+
+.item{
+    background-color: red;
+    border: 2px solid black;
+    margin: 3px;
+}
