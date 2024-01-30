@@ -1,3 +1,5 @@
+// Mnemomic=> Sunny days are always special days
+
 #include <iostream>
 using namespace std;
 void tower_of_hanoi(int n, char source, char auxiliary, char destination) {
@@ -6,9 +8,9 @@ void tower_of_hanoi(int n, char source, char auxiliary, char destination) {
         return;
     }
     
-    tower_of_hanoi(n - 1, source, destination, auxiliary);
+    tower_of_hanoi(n - 1, source, destination, auxiliary); // sunny days are
     cout << "Move disk " <<n<< " from "<<source<< " to "<<destination <<endl;
-    tower_of_hanoi(n - 1, auxiliary, source, destination);
+    tower_of_hanoi(n - 1, auxiliary, source, destination); // always special days
 }
 
 int main() {
