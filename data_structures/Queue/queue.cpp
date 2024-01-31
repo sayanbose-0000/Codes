@@ -1,30 +1,27 @@
 #include <iostream>
+
 #include <climits>
+
 using namespace std;
 
-class Queue
-{
-private:
-    int front;
+class Queue {
+    private: int front;
     int rear;
-    int *arr;
+    int * arr;
     int size;
 
-public:
-    Queue(int size)
-    {
-        cout << "Constructor called!" << endl;
-        front = -1;
-        rear = -1;
-        this->size = size;
-        arr = new int[size]; // array size determined at run-time
-    }
+    public: Queue(int size) {
+            cout << "Constructor called!" << endl;
+            front = -1;
+            rear = -1;
+            this -> size = size;
+            arr = new int[size]; // array size determined at run-time
+        }
 
-    ~Queue()
-    {
-        cout << "Destructor called!" << endl;
-        delete[] arr;
-    }
+        ~Queue() {
+            cout << "Destructor called!" << endl;
+            delete[] arr;
+        }
 
     bool isFull();
     bool isEmpty();
@@ -33,28 +30,22 @@ public:
     void display();
 };
 
-bool Queue::isFull()
-{
-    if (rear == size - 1)
-    {
+bool Queue::isFull() {
+    if (rear == size - 1) {
         return 1;
     }
     return 0;
 }
 
-bool Queue::isEmpty()
-{
-    if (rear == -1 || front == rear)
-    {
+bool Queue::isEmpty() {
+    if (rear == -1 || front == rear) {
         return 1;
     }
     return 0;
 }
 
-void Queue::enqueue(int data)
-{
-    if (!isFull())
-    {
+void Queue::enqueue(int data) {
+    if (!isFull()) {
         rear++;
         arr[rear] = data;
         return;
@@ -62,10 +53,8 @@ void Queue::enqueue(int data)
     cout << "Queue is full!" << endl;
 }
 
-int Queue::dequeue()
-{
-    if (!isEmpty())
-    {
+int Queue::dequeue() {
+    if (!isEmpty()) {
         front++;
         return arr[front];
     }
@@ -73,13 +62,10 @@ int Queue::dequeue()
     return INT_MIN;
 }
 
-void Queue::display()
-{
-    if (!isEmpty())
-    {
+void Queue::display() {
+    if (!isEmpty()) {
         cout << "The data are: ";
-        for (int i = front + 1; i <= rear; i++)
-        {
+        for (int i = front + 1; i <= rear; i++) {
             cout << arr[i] << " ";
         }
         cout << endl;
@@ -88,27 +74,23 @@ void Queue::display()
     cout << "Queue is empty!" << endl;
 }
 
-void queueOperations(Queue &);
+void queueOperations(Queue & );
 
-int main()
-{
+int main() {
     Queue q1(5);
     queueOperations(q1);
 }
 
-void queueOperations(Queue &myObj)
-{
+void queueOperations(Queue & myObj) {
     int choice;
     int popped;
 
     cout << "1- enqueue, 2-dequeue, 3- Display, 4- EXIT" << endl;
-    do
-    {
+    do {
         cout << "Enter choice: ";
         cin >> choice;
 
-        switch (choice)
-        {
+        switch (choice) {
         case 1:
             int ele;
             cout << "Enter data to be inserted: ";
@@ -117,12 +99,9 @@ void queueOperations(Queue &myObj)
             break;
         case 2:
             popped = myObj.dequeue();
-            if (popped != INT_MIN)
-            {
+            if (popped != INT_MIN) {
                 cout << "Popped: " << popped << endl;
-            }
-            else
-            {
+            } else {
                 cout << "Queue is empty!" << endl;
             }
             break;
