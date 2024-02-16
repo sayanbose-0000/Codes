@@ -135,7 +135,7 @@ int LinkedList::search(int item){
 
 
 void LinkedList::reverse(){
-	Node *prv=NULL, *curr=head, *nxt;
+	Node *prv=NULL, *curr=head, *nxt=NULL;
 	while(curr!=NULL){
 		nxt=curr;
 		curr=curr->next;
@@ -214,12 +214,11 @@ int main (){
 				ll.bubbleSort();
 				break;
 			case 9:
-				exit(0);
 				break;
 			default:
 				cout<<"Wrong choice"<<endl;
 				break;
 		}
-	} while(1);
+	} while(choice!=9);
 	return 0;
 }
