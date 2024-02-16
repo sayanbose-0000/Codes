@@ -134,16 +134,33 @@ int LinkedList::search(int item){
 }
 
 
+// void LinkedList::reverse(){
+// 	Node *prv=NULL, *curr=head, *nxt=NULL;
+// 	while(curr!=NULL){
+// 		nxt=curr;
+// 		curr=curr->next;
+// 		nxt->next=prv;
+// 		prv=nxt;
+// 	}
+// 	head=nxt;
+// }
+
+//			OR
+
 void LinkedList::reverse(){
-	Node *prv=NULL, *curr=head, *nxt=NULL;
+	Node *prv=NULL;
+	Node *curr;
+	Node *nxt=NULL;
 	while(curr!=NULL){
-		nxt=curr;
-		curr=curr->next;
-		nxt->next=prv;
-		prv=nxt;
+		nxt=curr->next;
+		curr->next=prv;
+		prv=curr;
+		curr=nxt;
 	}
-	head=nxt;
 }
+
+// 			OR
+
 
 
 void LinkedList::bubbleSort(){
