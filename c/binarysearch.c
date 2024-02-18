@@ -23,7 +23,7 @@ int main (){
 			r=m-1;
 		}
 		else {
-			l=l+1;
+			l=m+1;
 		}
 	}
 	return 0;
