@@ -1,0 +1,38 @@
+.navbar{
+    padding: 10px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    width: 100vw;
+    position: fixed;
+    top:0;
+
+    background-color: var(--backcol);
+    font-size: 18px;
+}
+
+:root{
+    --backcol: #222;
+}
+
+.navbar a{
+    background-color:  var(--backcol);
+    text-decoration: none;
+    font-weight: bolder;
+}
+
+.navbar a:hover{
+    color: rgb(219, 219, 219);
+    text-decoration: underline;
+}
+
+.register{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    background-color:  var(--backcol);
+    padding-right: 2px;
+}
+
