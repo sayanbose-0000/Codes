@@ -5,7 +5,6 @@ import Entrymain from './Entrymain';
 const App = () => {
   return (
     <>
-      <Navbar></Navbar>
       <section className='bodysection'>
         <Entrymain></Entrymain>
       </section>
