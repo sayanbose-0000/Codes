@@ -1,4 +1,5 @@
 import './styles/LoginInAndSignUp.css';
+import { useState } from 'react';
 
 const Login = () => {
 
@@ -13,9 +14,18 @@ const Login = () => {
     setUserPassword(e.target.value);
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
+
+    await fetch('http://localhost:3000/login', {
+      method: 'POST',
+      body: JSON.stringify({
+        userEmail,
+        userPassword
+      }),
+      headers: { 'Content-Type': 'application/json' }
+    })
+
     e.preventDefault();
-    
   }
 
   return (

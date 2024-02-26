@@ -21,6 +21,25 @@ app.post('/signup', (req, res) => {
   );
 })
 
+app.post('/login', (req, res) => {
+  const { userName, userEmail, userPassword } = req.body;
+  res.send(
+    {
+      reqData: {
+        userEmail,
+        userPassword
+      }
+    }
+  );
+})
+
 app.listen(port, () => {
   console.log(`Example app listening on port http://localhost:${port}`);
 })
+
+/* signup database: 
+
+username- bosesayan0000, 
+password- 5DTP2SrOm0KuC3A1
+connection string-mongodb+srv://bosesayan0000:5DTP2SrOm0KuC3A1@cluster0.lb9dlo1.mongodb.net/
+*/
