@@ -23,6 +23,7 @@ app.post('/signup', async(req, res) => {
     })
 
     res.json(userDoc);
+    
   } catch (e) {
     res.status(404).json(e);
   }

@@ -5,6 +5,7 @@ const SignUp = () => {
   const [userName, setUserName] = useState('');
   const [userPassword, setUserPassword] = useState('')
   const [userEmail, setUserEmail] = useState('');
+  const [error, setError] = useState('');
 
   const handleUserEmailChange = (e) => {
     setUserEmail(e.target.value);
@@ -21,7 +22,7 @@ const SignUp = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    await fetch('http://localhost:3000/signup', {
+    const response = await fetch('http://localhost:3000/signup', {
       method: 'POST',
       body: JSON.stringify({
         userName,
@@ -30,6 +31,14 @@ const SignUp = () => {
       }),
       headers: { 'Content-Type': 'application/json' }
     })
+    console.log(response)
+
+    if (response.statusText === "OK") {
+      setError("Successful Sign Up")
+    }
+    else {
+      setError("Sign up not successful. Try again later!")
+    }
   }
 
   return (
@@ -41,6 +50,7 @@ const SignUp = () => {
           <input type="text" placeholder='Enter Username...' value={userName} onChange={(e) => { handleUserNameChange(e) }} />
           <input type="password" name="" id="" placeholder='Enter Password...' value={userPassword} onChange={(e) => { handleUserPasswordChange(e) }} />
           <button>Submit</button>
+          <p style={{ color: "red", width: "100%",textAlign: "center" }}>{error}</p>
         </form>
       </div>
     </>
