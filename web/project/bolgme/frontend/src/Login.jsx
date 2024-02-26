@@ -1,13 +1,30 @@
 import './styles/LoginInAndSignUp.css';
 
 const Login = () => {
+
+  const [userPassword, setUserPassword] = useState('')
+  const [userEmail, setUserEmail] = useState('');
+
+  const handleUserEmailChange = (e) => {
+    setUserEmail(e.target.value);
+  }
+
+  const handleUserPasswordChange = (e) => {
+    setUserPassword(e.target.value);
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    
+  }
+
   return (
     <>
       <div className="containregister">
         <h1>Login</h1>
-        <form action="" className='loginandsignup'>
-          <input type="email" placeholder='Enter Email...' />
-          <input type="password" name="" id="" placeholder='Enter Password...' />
+        <form action="" className='loginandsignup' onSubmit={(e) => { handleSubmit(e) }}>
+          <input type="email" placeholder='Enter Email...' value={userEmail} onChange={(e) => { handleUserEmailChange(e) }} />
+          <input type="password" name="" id="" placeholder='Enter Password...' value={userPassword} onChange={(e) => { handleUserPasswordChange(e) }} />
           <button>Submit</button>
         </form>
       </div>
