@@ -1,8 +1,54 @@
-    .containregister{
-        height: 100vh;
-        width: 100vw;
+.containregister {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
 
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }   
+.loginandsignup {
+    height: 400px;
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: end;
+    padding: 25px;
+    border: 2px solid rgb(208, 208, 208);
+    border-radius: 10px;
+}
+
+.containregister p {
+    width: 100%;
+    text-align: center;
+    font-size: larger;
+    font-weight: bolder;
+    margin-bottom: 30px;
+}
+
+.loginandsignup input,
+.loginandsignup button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #ccc;
+    font-size: 16px;
+}
+
+.loginandsignup input:active,
+.loginandsignup input:focus {
+    border-bottom: 2px solid #45a049;
+    outline: none;
+}
+
+.loginandsignup button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 50px;
+    margin-top: 50px;
+}
+
+.loginandsignup button:hover {
+    background-color: #45a049;
+}

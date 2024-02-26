@@ -5,7 +5,8 @@ const Login = () => {
     <>
       <div className="containregister">
         <form action="" className='loginandsignup'>
-          <input type="text" placeholder='Enter usename...' />
+          <p>Login</p>
+          <input type="email" placeholder='Enter Email...' />
           <input type="password" name="" id="" placeholder='Enter Password...' />
           <button>Submit</button>
         </form>
