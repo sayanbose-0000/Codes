@@ -1,5 +1,6 @@
 .containregister {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100vh;
@@ -17,11 +18,8 @@
     border-radius: 10px;
 }
 
-.containregister p {
-    width: 100%;
+.containregister h1 {
     text-align: center;
-    font-size: larger;
-    font-weight: bolder;
     margin-bottom: 30px;
 }
 

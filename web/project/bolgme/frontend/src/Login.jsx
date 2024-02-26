@@ -4,8 +4,8 @@ const Login = () => {
   return (
     <>
       <div className="containregister">
+        <h1>Login</h1>
         <form action="" className='loginandsignup'>
-          <p>Login</p>
           <input type="email" placeholder='Enter Email...' />
           <input type="password" name="" id="" placeholder='Enter Password...' />
           <button>Submit</button>
