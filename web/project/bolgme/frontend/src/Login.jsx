@@ -4,10 +4,10 @@ import { useState } from 'react';
 const Login = () => {
 
   const [userPassword, setUserPassword] = useState('')
-  const [userEmail, setUserEmail] = useState('');
+  const [userName, setUserName] = useState('');
 
-  const handleUserEmailChange = (e) => {
-    setUserEmail(e.target.value);
+  const handleUserNameChange = (e) => {
+    setUserName(e.target.value);
   }
 
   const handleUserPasswordChange = (e) => {
@@ -15,26 +15,26 @@ const Login = () => {
   }
 
   const handleSubmit = async (e) => {
+    e.preventDefault();
 
     await fetch('http://localhost:3000/login', {
       method: 'POST',
       body: JSON.stringify({
-        userEmail,
+        userName,
         userPassword
       }),
       headers: { 'Content-Type': 'application/json' }
     })
 
-    e.preventDefault();
   }
 
   return (
     <>
       <div className="containregister">
         <h1>Login</h1>
-        <form action="" className='loginandsignup' onSubmit={(e) => { handleSubmit(e) }}>
-          <input type="email" placeholder='Enter Email...' value={userEmail} onChange={(e) => { handleUserEmailChange(e) }} />
-          <input type="password" name="" id="" placeholder='Enter Password...' value={userPassword} onChange={(e) => { handleUserPasswordChange(e) }} />
+        <form action="" className='loginandsignup' onSubmit={(e) => { handleSubmit(e) }} required>
+          <input type="text" placeholder='Enter User Name...' value={userName} onChange={(e) => { handleUserNameChange(e) }} required />
+          <input type="password" name="" id="" placeholder='Enter Password...' value={userPassword} onChange={(e) => { handleUserPasswordChange(e) }} required />
           <button>Submit</button>
         </form>
       </div>
