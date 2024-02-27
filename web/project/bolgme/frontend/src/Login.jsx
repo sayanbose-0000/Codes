@@ -1,10 +1,13 @@
 import './styles/LoginInAndSignUp.css';
 import { useState } from 'react';
+import { Navigate } from 'react-router-dom';
 
 const Login = () => {
 
   const [userPassword, setUserPassword] = useState('')
   const [userName, setUserName] = useState('');
+  const [error, setError] = useState('');
+  const [redirect, setRedirect] = useState(false);
 
   const handleUserNameChange = (e) => {
     setUserName(e.target.value);
@@ -16,16 +19,30 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setError("Unsucessful Login")
 
-    await fetch('http://localhost:3000/login', {
+    const response = await fetch('http://localhost:3000/login', {
       method: 'POST',
       body: JSON.stringify({
         userName,
         userPassword
       }),
-      headers: { 'Content-Type': 'application/json' }
+      headers: { 'Content-Type': 'application/json' },
+      credentials: "include" // cookie will be included with the react app
     })
 
+    console.log(response)
+
+    setError("Unsucessful Login")
+
+    if (response.ok) {
+      setError("Successful Login")
+      setRedirect(true);
+    }
+  }
+
+  if (redirect) {
+    return <Navigate to={"/"} />
   }
 
   return (
@@ -36,6 +53,7 @@ const Login = () => {
           <input type="text" placeholder='Enter User Name...' value={userName} onChange={(e) => { handleUserNameChange(e) }} required />
           <input type="password" name="" id="" placeholder='Enter Password...' value={userPassword} onChange={(e) => { handleUserPasswordChange(e) }} required />
           <button>Submit</button>
+          <p style={{ width: "100%", textAlign: "center" }}>{error}</p>
         </form>
       </div>
     </>

@@ -7,8 +7,8 @@
 }
 
 .loginandsignup {
-    height: 400px;
-    width: 400px;
+    height: 50%;
+    width: 80%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -16,6 +16,12 @@
     padding: 25px;
     border: 2px solid rgb(208, 208, 208);
     border-radius: 10px;
+}
+
+@media only screen and (max-width: 500px) {
+    .loginandsignup {
+        width: 100%;
+    }
 }
 
 .containregister h1 {
@@ -34,7 +40,7 @@
 
 .loginandsignup input:active,
 .loginandsignup input:focus {
-    border-bottom: 2px solid #45a049;
+    border-bottom: 2px solid #4CAF50;
     outline: none;
 }
 

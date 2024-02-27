@@ -6,7 +6,7 @@ import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 
 const app = express();
-app.use(cors());
+app.use(cors({ credentials: true, origin: 'http://localhost:5173' }));
 
 const port = 3000;
 
@@ -35,18 +35,29 @@ app.post('/signup', async (req, res) => {
 });
 
 app.post('/login', async (req, res) => {
-  let { userName, userEmail, userPassword } = req.body;
-  const userDoc = await userModel.findOne({ userName: userName });
-  const passOk = bcrypt.compareSync(userPassword, userDoc.userPassword); // first one is from login page, second one is from databse 
+  let { userName, userPassword } = req.body;
+  const userDoc = await userModel.findOne({ userName: userName }); // finding username from database.
+  if (userDoc) {
+    const passOk = bcrypt.compareSync(userPassword, userDoc.userPassword); // first one is from login page, second one is from databse 
 
-  //JWT
-  if(passOk){ 
-    //logged in
-  }
-  else{
-    res.status(400).json("Incorrect Credentials")
-  }
 
+    const secretKey = 'wee5wg15w+9w24tu24g42+65446eagahuhjbdzjhvjhk'; // to be used in jwt
+
+    //JWT
+    if (passOk) {
+      jwt.sign({ userName, id: userDoc._id }, secretKey, {}, (err, token) => {  // jwt.sign(payload, secretOrPrivateKey, options, callback)
+        if (err) throw err;
+        res.cookie('token', token);
+        res.send('ok')
+      });
+
+      console.log("Logged In")
+    }
+    else {
+      console.log("Error")
+      res.status(400).json("Incorrect Credentials")
+    }
+  }
 })
 
 app.listen(port, () => {
