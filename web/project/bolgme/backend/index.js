@@ -4,6 +4,7 @@ import mongoose from 'mongoose';
 import userModel from './models/Users.js';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
+import cookieParser from 'cookie-parser';
 
 const app = express();
 app.use(cors({ credentials: true, origin: 'http://localhost:5173' }));
@@ -11,6 +12,7 @@ app.use(cors({ credentials: true, origin: 'http://localhost:5173' }));
 const port = 3000;
 
 app.use(express.json()); // middleware json parser
+app.use(cookieParser());
 
 mongoose.connect('mongodb+srv://bosesayan0000:5DTP2SrOm0KuC3A1@cluster0.lb9dlo1.mongodb.net/');
 
@@ -58,6 +60,10 @@ app.post('/login', async (req, res) => {
       res.status(400).json("Incorrect Credentials")
     }
   }
+})
+
+app.get('/profile', (req, res) => {
+  res.json(req.cookies);
 })
 
 app.listen(port, () => {
