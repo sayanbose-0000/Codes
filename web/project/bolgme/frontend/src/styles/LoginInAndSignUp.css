@@ -24,6 +24,13 @@
     }
 }
 
+@media only screen and (min-width: 680px) {
+    .loginandsignup {
+        width: 50%;
+    }
+}
+
+
 .containregister h1 {
     text-align: center;
     margin-bottom: 30px;
