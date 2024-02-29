@@ -14,7 +14,7 @@ const port = 3000;
 app.use(express.json()); // middleware json parser
 app.use(cookieParser());
 
-mongoose.connect('mongodb+srv://bosesayan0000:5DTP2SrOm0KuC3A1@cluster0.lb9dlo1.mongodb.net/');
+mongoose.connect('mongodb+srv://bosesayan0000:5DTP2SrOm0KuC3A1@cluster0.lb9dlo1.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0');
 
 app.post('/signup', async (req, res) => {
   let { userName, userEmail, userPassword } = req.body;
@@ -36,6 +36,8 @@ app.post('/signup', async (req, res) => {
   }
 });
 
+const secretKey = 'wee5wg15w+9w24tu24g42+65446eagahuhjbdzjhvjhk'; // to be used in jwt
+
 app.post('/login', async (req, res) => {
   let { userName, userPassword } = req.body;
   const userDoc = await userModel.findOne({ userName: userName }); // finding username from database.
@@ -43,14 +45,14 @@ app.post('/login', async (req, res) => {
     const passOk = bcrypt.compareSync(userPassword, userDoc.userPassword); // first one is from login page, second one is from databse 
 
 
-    const secretKey = 'wee5wg15w+9w24tu24g42+65446eagahuhjbdzjhvjhk'; // to be used in jwt
-
     //JWT
     if (passOk) {
       jwt.sign({ userName, id: userDoc._id }, secretKey, {}, (err, token) => {  // jwt.sign(payload, secretOrPrivateKey, options, callback)
         if (err) throw err;
         res.cookie('token', token);
-        res.send('ok')
+        res.send({
+          userName
+        })
       });
 
       console.log("Logged In")
@@ -62,9 +64,19 @@ app.post('/login', async (req, res) => {
   }
 })
 
+// Endpoint for checking if token is valid
 app.get('/profile', (req, res) => {
-  res.json(req.cookies);
+  const { token } = req.cookies;
+  jwt.verify(token, secretKey, {}, (err, info) => {
+    if (err) throw err;
+    res.json(info);
+  })
 })
+
+app.post('/logout', (req, res) => {
+  res.cookie('token', '').json('ok'); // converts the token to empty string and sends ok response
+})
+
 
 app.listen(port, () => {
   console.log(`Example app listening on port http://localhost:${port}`);

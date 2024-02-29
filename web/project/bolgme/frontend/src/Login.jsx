@@ -1,6 +1,7 @@
 import './styles/LoginInAndSignUp.css';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { Navigate } from 'react-router-dom';
+import { UserContext } from './UserContext';
 
 const Login = () => {
 
@@ -8,6 +9,7 @@ const Login = () => {
   const [userName, setUserName] = useState('');
   const [error, setError] = useState('');
   const [redirect, setRedirect] = useState(false);
+  const { userInfo, setUserInfo } = useContext(UserContext);
 
   const handleUserNameChange = (e) => {
     setUserName(e.target.value);
@@ -36,8 +38,11 @@ const Login = () => {
     setError("Unsucessful Login")
 
     if (response.ok) {
-      setError("Successful Login")
-      setRedirect(true);
+      response.json().then((userName) => {
+        setUserInfo(userName);
+        setError("Successful Login");
+        setRedirect(true);
+      })
     }
   }
 
