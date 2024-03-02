@@ -5,6 +5,11 @@ import userModel from './models/Users.js';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 import cookieParser from 'cookie-parser';
+import multer from 'multer';
+const uploadMiddleWare = multer({ dest: 'uploads/' });
+import fs from 'fs';
+import postModel from './models/Post.js';
+import path from 'path';
 
 const app = express();
 app.use(cors({ credentials: true, origin: 'http://localhost:5173' }));
@@ -13,6 +18,9 @@ const port = 3000;
 
 app.use(express.json()); // middleware json parser
 app.use(cookieParser());
+
+const __dirname = path.dirname(new URL(import.meta.url).pathname);
+app.use('/uploads', express.static(__dirname + '/uploads'));
 
 mongoose.connect('mongodb+srv://bosesayan0000:5DTP2SrOm0KuC3A1@cluster0.lb9dlo1.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0');
 
@@ -35,6 +43,44 @@ app.post('/signup', async (req, res) => {
     res.status(404).json(e);
   }
 });
+
+app.post('/post', uploadMiddleWare.single('file'), async (req, res) => {
+  const { originalname, path } = req.file;
+  const parts = originalname.split('.')
+  const ext = parts[parts.length - 1];
+  const newPath = path + "." + ext;
+  fs.renameSync(path, newPath);
+
+  const { title, summary, content } = req.body;
+
+  try {
+    const { token } = req.cookies;
+
+    jwt.verify(token, secretKey, {}, async (err, info) => {
+      if (err) throw err;
+      const postDoc = await postModel.create({
+        title,
+        summary,
+        content,
+        image: newPath,
+        author: info.id
+      })
+
+      res.json(postDoc);
+    })
+  } catch (e) {
+    res.status(404).json(e);
+  }
+
+
+})
+
+app.get('/post', async (req, res) => {
+  // .sort() fetches posts newest first, .limit() fetches last 20 posts
+  const posts = await postModel.find().populate('author', ['userName']).sort({ createdAt: -1 }).limit(20); // populates userName only, no password
+  res.json(posts);
+})
+
 
 const secretKey = 'wee5wg15w+9w24tu24g42+65446eagahuhjbdzjhvjhk'; // to be used in jwt
 
@@ -63,6 +109,7 @@ app.post('/login', async (req, res) => {
     }
   }
 })
+
 
 // Endpoint for checking if token is valid
 app.get('/profile', (req, res) => {

@@ -7,6 +7,7 @@ import Layout from './Layout.jsx';
 import Login from './Login.jsx';
 import SignUp from './SignUp.jsx';
 import { UserContextProvider } from './UserContext.jsx';
+import CreatePost from './CreatePost.jsx';
 
 const router = createBrowserRouter([
   {
@@ -26,6 +27,10 @@ const router = createBrowserRouter([
       {
         path: "/signup",
         element: <SignUp />
+      },
+      {
+        path: "/create",
+        element: <CreatePost />
       },
     ],
 

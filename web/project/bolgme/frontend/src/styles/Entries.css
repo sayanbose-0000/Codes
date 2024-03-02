@@ -1,4 +1,4 @@
-.entries{
+.entries {
     width: 40vw;
 
     padding: 10px;
@@ -9,23 +9,32 @@
     cursor: default;
 }
 
-.entries p{
+.entries p {
     color: rgba(240, 248, 255, 0.882);
 }
 
-.entries:hover{
+.date {
+    display: flex;
+    justify-content: space-between;
+}
+
+.date>span {
+    color: rgb(153, 153, 153);
+}
+
+.entries:hover {
     /* box-shadow: rgba(187, 187, 207, 0.2) 0px 10px 32px 0px; */
     outline: 2px solid rgb(87, 87, 87);
 }
 
-.entries>img{
+.entries>img {
     object-fit: cover;
     width: 100%;
     border-radius: 10px;
 }
 
 @media only screen and (max-width:650px) {
-    .entries{
+    .entries {
         width: 80vw;
     }
 }

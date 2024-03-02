@@ -40,7 +40,7 @@ const Navbar = () => {
         {userName ?
           <>
             <p>{userName}</p>
-            <Link to="">Create Post</Link>
+            <Link to="/create">Post</Link>
             <a style={{ cursor: "pointer" }} onClick={handleLogOut}> Logout </a>
           </>
           :
