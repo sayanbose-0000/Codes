@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 import './styles/Navbar.css'
 import { useContext, useEffect, useState } from 'react';
 import { UserContext } from './UserContext';

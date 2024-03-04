@@ -9,6 +9,7 @@ import SignUp from './SignUp.jsx';
 import { UserContextProvider } from './UserContext.jsx';
 import CreatePost from './CreatePost.jsx';
 import PostPage from './PostPage.jsx';
+import EditPost from './EditPost.jsx';
 
 const router = createBrowserRouter([
   {
@@ -36,6 +37,10 @@ const router = createBrowserRouter([
       {
         path: "/posts/:id",
         element: <PostPage />
+      },
+      {
+        path: "/edit/:id",
+        element: <EditPost />
       }
     ],
 

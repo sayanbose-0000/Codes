@@ -34,7 +34,7 @@ const SignUp = () => {
     console.log(response)
 
     if (response.status === 200) {
-      setError("Successfully Signed Up")
+      setError("Successfully Signed Up. Now Login!")
     }
     else {
       setError("Sign up not successful. Try again later!")

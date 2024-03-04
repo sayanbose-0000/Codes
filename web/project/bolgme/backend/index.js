@@ -81,6 +81,58 @@ app.get('/post', async (req, res) => {
   res.json(posts);
 })
 
+app.get('/post/:id', async (req, res) => {
+  const { id } = req.params;
+  const posts = await postModel.findById(id).populate('author', ['userName']).sort({ createdAt: -1 }).limit(20); // populates userName only, no password
+  res.json(posts);
+})
+
+app.put('/post', uploadMiddleWare.single('file'), async (req, res) => {
+  let newPath = '';
+  console.log(req.file);
+  if (req.file) {
+    const { originalname, path } = req.file;
+    const parts = originalname.split('.')
+    const ext = parts[parts.length - 1];
+    newPath = path + "." + ext;
+    fs.renameSync(path, newPath);
+  }
+
+  try {
+    const { token } = req.cookies;
+
+    jwt.verify(token, secretKey, {}, async (err, info) => {
+      if (err) throw err;
+
+      const { id, title, summary, file, content } = req.body;
+      const postDoc = await postModel.findById(id);
+      const isAuthor = JSON.stringify(postDoc.author) === JSON.stringify(info.id)
+
+      if (!isAuthor) {
+        return res.status(400).json("You are not the author");
+      }
+      
+      console.log(postDoc.image);
+      console.log(newPath);
+      console.log("hi");
+
+      const updatedFields = {
+        title,
+        summary,
+        content,
+        image: newPath ? newPath : postDoc.image,
+        author: info.id
+      };
+
+      const editedDoc = await postModel.findOneAndUpdate({ _id: id }, updatedFields);
+
+      res.json(editedDoc);
+    })
+  } catch (e) {
+    res.status(404).json(e);
+  }
+})
+
 
 const secretKey = 'wee5wg15w+9w24tu24g42+65446eagahuhjbdzjhvjhk'; // to be used in jwt
 

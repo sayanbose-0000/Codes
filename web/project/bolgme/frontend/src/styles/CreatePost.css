@@ -83,7 +83,7 @@
 }
 
 .createform>button {
-  background-color: #4CAF50;
+  /* background-color: #4CAF50;
   color: rgb(0, 0, 0);
   border: none;
   cursor: pointer;
@@ -91,5 +91,15 @@
   border-radius: 3px;
   padding: 1px;
   border: 2px solid rgb(255, 255, 255);
+  border-radius: 5px; */
+
+  background-color: #4CAF50;
+  color: rgb(0, 0, 0);
+  border: none;
+  cursor: pointer;
+  margin: 1px;
+  border-radius: 3px;
+  padding: 1px;
+  outline: 3px solid #4CAF50;
   border-radius: 5px;
 }
