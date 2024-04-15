@@ -1,0 +1,35 @@
+* {
+  /*universal selector. Used for css reset*/
+  font-family: "consolas";
+}
+
+body {
+  font-size: 20px;
+  border: 2px solid black;
+}
+
+p {
+  color: purple;
+}
+
+.gray {
+  /*Overrides the purple set to all paras because they are written below*/
+  color: gray;
+}
+
+#second {
+  /*don't use id's in css until absolutely necessary...use classes instead*/
+  font-style: italic;
+}
+
+h1, h2 {
+  /*group selectors- looks for all the elements seperated by comma*/
+  color: blue;
+}
+
+p span {
+  /*selects all span elements present INSIDE div elements (as a child)*/
+  text-transform: uppercase;
+  background-color: gold;
+}
+

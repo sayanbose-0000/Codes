@@ -1,0 +1,21 @@
+.container{
+  display:grid;
+
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows:repeat(4, 1fr);
+
+  gap:1rem;
+}
+
+.box{
+  border:2px solid black;
+  background-color:lightgreen;
+}
+
+.box:first-child{ /*similarly we can do for row spanning*/
+  
+  /* grid-column-start:1;   ----starts at 1*/
+  /*grid-column-end:3;    ----ends at 3. Covers 3-1=2 box positions */
+  grid-column:1/3; /*short hand for the above*/
+  grid-row:1/3;
+}

@@ -1,0 +1,12 @@
+h1 {
+  font-size: 60px; /*default-16px. However, try relative units(like em, rem, etc.) instead of absolute(like px, %)*/
+  border: 2px solid black; /*only while setting borders and all that, we should only them use px*/
+  width: 40ch; /*40ch (characters) in this line before line breaks*/
+  padding:2rem;
+}
+
+p {
+  font-size: 1.8rem;
+  /*rem- root em, defined by browser until explicitly written in the css*/
+  /*em- looks for parent element and sets size according to that*/
+}

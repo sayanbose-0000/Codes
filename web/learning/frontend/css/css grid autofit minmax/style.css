@@ -1,0 +1,15 @@
+.container{
+  display:grid;
+
+  /*auto-fit->automatically fits in available space*/
+  grid-template-columns: repeat(auto-fit, minmax(400px,1fr)); /*minimum:400px, maximum: 1fr*/
+  
+  gap:1rem;
+}
+
+.box{
+  color:white;
+  background-color:#333;
+  border:2px solid #4CAF50;
+  padding:20px;
+}

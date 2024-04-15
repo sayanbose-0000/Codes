@@ -1,0 +1,29 @@
+* {
+  /*css reset*/
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  /*for a content, it includes padding value, margin value to the sizes. Content value doesnot include them*/
+}
+
+.container {
+  border: 2px dashed #E91E63;
+  font-size: 1.5rem;
+  margin: 1.5rem;
+  padding: 1.5rem;
+  outline: 4px solid #8BC34A;
+  /*outlines are similar to borders but outlines don't take up space like borders*/
+  outline-offset: 5px;
+  /*distance between border and the outline, -ve values mean that the outline goes inside the box*/
+}
+
+.circle {
+  margin: auto; /*horizontally center an element within its container.  */
+  background-color: gold;
+  border: 2px solid #673AB7;
+  padding: 17px;
+  /*for circle, width=height and border radius=1/2* height or width*/
+  width: 100px;
+  height: 100px;
+  border-radius: 50px;
+}

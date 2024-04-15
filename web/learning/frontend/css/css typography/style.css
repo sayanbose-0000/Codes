@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap'); /*use either import or link. import is done in css itslef and link is written in css */
+
+body {
+  padding: 20%;
+  font-size:1.3rem;
+  font-family:'Courier New', Courier, monospace, Courier, monospace, Haettenschweiler, 'Arial Narrow Bold', sans-serif, Times, 'Franklin Gothic Medium', 'Arial Narrow', Arial, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h1{
+  font-family: 'Pacifico', cursive;
+  font-size:2.3rem;
+}
+
+input, button{
+  font:inherit; /*by default these won't inherit the properties of parent class unless stated otherwise by inherit porperty*/
+}
+
+p{
+  text-decoration:underline;
+  text-transform:uppercase;
+  text-align:justify;
+  text-indent:5em; /*Indents first line only*/
+  line-height:1.5;
+  letter-spacing:0.2rem;
+  word-spacing:1.5rem;
+  font-weight:bold;
+  /* font-style:italic; */
+}

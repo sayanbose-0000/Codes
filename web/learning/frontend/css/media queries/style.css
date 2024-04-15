@@ -1,0 +1,50 @@
+.box {
+    margin: 10px;
+    text-align: center;
+    font-size: 70px;
+    color: white;
+    display: none;
+}
+
+@media only screen and (min-width:1900px) and (max-width:2040px) {
+    .box4 {
+        display: block;
+        background-color: orange;
+    }
+}
+
+@media only screen and (min-width:1000px) and (max-width:1900px) {
+    .box3 {
+        display: block;
+        background-color: green;
+    }
+}
+
+@media only screen and (min-width:500px) and (max-width:1000px) {
+    .box2 {
+        display: block;
+        background-color: purple;
+    }
+}
+
+@media only screen and (min-width:270px) and (max-width:500px) {
+    .box1 {
+        display: block;
+        background-color: blue;
+    }
+}
+
+@media only screen and (min-width:200px) and (max-width:270px) {
+    .box0 {
+        display: block;
+        background-color: red;
+    }
+}
+
+@media only screen and (max-width:200px) {
+    .box_-1 {
+        display: block;
+        background-color: white;
+        color: black;
+    }
+}

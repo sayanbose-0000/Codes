@@ -1,0 +1,23 @@
+.box{
+    display: flex;
+    height: 200px;
+    width: 200px;
+    justify-content: center;
+    align-items: center;
+
+    background-color: #333;
+    color: white;
+
+    transition-property: background-color; /*onn which prop we want to apply it*/
+    transition-duration: 1s;
+    transition-timing-function: ease-out;
+    transition-delay: 0.01s;
+
+    transition: color 1s ease-out 0.01s;
+    /*to transition all the things of a box, we can set atransition-property:all*/
+}
+
+.box:hover{
+    background-color: white;
+    color:#333;
+}

@@ -1,0 +1,11 @@
+body{
+  font-size:22px;
+  font-family: Arial, Helvetics, sans-serif;
+  line-height:1.4; /*height between two successive lines*/
+  background-color:palegreen;
+  color: #4e4fa1;
+}
+
+p{
+  color:#0000B3;
+}
