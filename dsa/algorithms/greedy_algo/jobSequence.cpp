@@ -57,3 +57,7 @@ void printJobScheduling(Job arr[], int n)
     return 0;
   }
 
+
+// Output:
+// Following is maximum profit sequence of jobs 
+// c a e 

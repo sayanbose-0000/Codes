@@ -63,8 +63,6 @@ void fractionalKnapsack(FracType arr[], int n, double maxWeight) {
     maxWeight -= arr[i].weight;
   }
 
-  cout << endl;
-
   double sum = 0;
   for (int i = 0; i < n; i++) {
     cout << result[i] << " ";
@@ -85,3 +83,8 @@ int main() {
   fractionalKnapsack(arr, n, maxWeight);
   return 0;
 }
+
+
+// Output
+// 1 1 0.5 0 
+// Profit is: 440
