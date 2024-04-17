@@ -67,7 +67,7 @@ void kruskal (int n, int edgeSize) {
 
 
 int main () {
-  ifstream myFile("graph.txt");
+  ifstream myFile("graph1.txt");
 
   if (!myFile) {
     cout << "Error reading file";
