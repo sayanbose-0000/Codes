@@ -1,41 +1,60 @@
 #include<iostream>
-#include<fstream>
+#include<climits>
 using namespace std;
+#define MAX 6 // size of graph
+
+int graph[MAX][MAX] = {
+  {0, 5, 0, 6, 0, 0},
+  {5, 0, 2, 2, 0, 0},
+  {0, 2, 0, 1, 4, 0},
+  {6, 2, 1, 0, 3, 0},
+  {0, 0, 4, 3, 0, 1},
+  {0, 0, 6, 0, 1, 0}
+};
+
+void prims(int);
+int minEle(bool[] , int[]);
+void printMST(int[], int[], int);
 
 int main () {
-    ifstream myFile('graph2.txt');
+  prims(0); // start vertex
+  return 0;
+}
 
-    if (!myFile) {
-        cout << "Graph can't be opened!" << endl;
-        return 1;
-    }
+void prims(int start) {
+  int key[MAX], parent[MAX];
+  bool mstSet[MAX]; // mstSet is basically a true/false array to see visited ele
 
-    int n;
-    myFile >> n; // size of the graph
+  for (int i = 0; i < MAX; i++) 
+    key[i] = INT_MAX, mstSet[i] = false, parent[i] = -1;
 
-    int graph[n][n];
+  key[start] = 0;
 
-    for (int i = 0; i < n; i++) {
-        for (int j = 0; j < n; j++) {
-            myFile >> graph[i][j]
-        }
-    }
+  for (int i = 0; i < MAX; i++) {
+    int  u = minEle(mstSet, key); // gets min ele from key
+    mstSet[u] = true;
+    for (int j = 0; j < MAX; j++) 
+      if (graph[u][j] && mstSet[j] == false && graph[u][j] < key[j])
+        parent[j] = u, key[j] = graph[u][j];
+  }
 
-    myFile.close();
+  printMST(parent, key, start);
+}
 
-    for (int i = 0; i < n; i++) {
-        for (int j = 0; j < n; j++) {
-            cout << myFile;
-        }
-        cout << endl;
-    }
+int minEle (bool mstSet[], int key[]) {
+  int minIdx = 0, minVal = INT_MAX;
+  for (int i = 0; i < MAX; i++) 
+    if (key[i] < minVal && mstSet[i] == false)
+      minVal = key[i], minIdx = i;
 
-    int adjacent[n];
+  return minIdx; // since here idx is basically the vertex number
+}
 
-    // for (int i = 0; i < n; i++) {
-    //     for (int j = i+1; j < n; j++) {
-    //         adjacent[i];
-    //     }
-    // }
-
+void printMST(int parent[], int key[], int start) {
+  int sum = 0;
+  for (int i = 0; i < MAX; i++) {
+    if (parent[i] != -1)
+      sum += graph[i][parent[i]];
+  }
+  cout << "MST Weight is: " << sum;
 }
