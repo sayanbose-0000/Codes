@@ -2,7 +2,7 @@
 using namespace std;
 #include <climits>
 
-#define MAX 9
+#define MAX 9 // change this when the matrix is updated
 
 int graph[MAX][MAX] = {
   {0, 4, 0, 0, 0, 0, 0, 8, 0},  
