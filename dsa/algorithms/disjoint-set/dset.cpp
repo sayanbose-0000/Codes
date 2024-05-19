@@ -34,7 +34,7 @@ void inSameComponent(int node1, int node2, DSet arr[]) {
 }
 
 int main () {
-  int n = 7;
+  int n = 7;+
 
   DSet arr[n];
 
