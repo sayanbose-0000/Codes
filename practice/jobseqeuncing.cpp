@@ -1,37 +1,33 @@
 #include <iostream>
+#include <algorithm>
 using namespace std;
-#define MAX 7
-#define MAXDEADLINE 6
+#define MAX 4
 
-int profit[MAX], deadline[MAX], visites[MAX], res[MAXDEADLINE] = {0};
+int profit[MAX], deadline[MAX], res[MAX] = {0};
 bool visited[MAX] = {false};
 
 void initialize();
 void bubbleSort();
 void jobSequencing();
+void printJobSequencing();
 
 int main () {
   initialize();
   bubbleSort();
   jobSequencing();
+  printJobSequencing();
 }
 
 void initialize() {
-  profit[0] = 200;
-  profit[1] = 500;
-  profit[2] = 600;
-  profit[3] = 300;
-  profit[4] = 200;
-  profit[5] = 400;
-  profit[6] = 150;
+  profit[0] = 20;
+  profit[1] = 40;
+  profit[2] = 35;
+  profit[3] = 25;
 
-  deadline[0] = 3;
-  deadline[1] = 2;
-  deadline[2] = 1;
-  deadline[3] = 6;
-  deadline[4] = 2;
-  deadline[5] = 4;
-  deadline[6] = 2;
+  deadline[0] = 2;
+  deadline[1] = 1;
+  deadline[2] = 3;
+  deadline[3] = 1;
 }
 
 void bubbleSort() {
@@ -52,8 +48,20 @@ void bubbleSort() {
 }
 
 void jobSequencing() {
-  for (int i = 0; i < MAXDEADLINE; i++) {
-    int min = min > 
-    for (int j = min)
+  for (int i = 0; i < MAX; i++) {
+    for (int j = min(MAX, deadline[i])-1; j >= 0; j--) {
+      if (!visited[j]) {
+        visited[j] = true;
+        res[j] = i;
+        break;
+      }
+    }
   }
+}
+
+void printJobSequencing() {
+  for (int i = 0; i < MAX; i++) {
+    if (res[i] != 0) cout << res[i] << " ";
+  }
+  cout << endl;
 }

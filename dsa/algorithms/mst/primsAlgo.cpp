@@ -43,10 +43,10 @@ void prims(int start) {
 
 int minEle (bool mstSet[], int key[]) {
   int minIdx = 0, minVal = INT_MAX;
-  for (int i = 0; i < MAX; i++) 
+  for (int i = 0; i < MAX; i++)
     if (key[i] < minVal && mstSet[i] == false)
       minVal = key[i], minIdx = i;
-
+                
   return minIdx; // since here idx is basically the vertex number
 }
 
