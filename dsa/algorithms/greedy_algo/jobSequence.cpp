@@ -3,7 +3,6 @@
 using namespace std;
 
 struct Job {
-
   char id;
   int dead; 
   int profit;

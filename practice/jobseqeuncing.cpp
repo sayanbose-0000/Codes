@@ -1,10 +1,10 @@
 #include <iostream>
 #include <algorithm>
 using namespace std;
-#define MAX 4
+#define MAX 5
 
-int profit[MAX], deadline[MAX], res[MAX] = {0};
-bool visited[MAX] = {false};
+int profit[MAX], deadline[MAX], res[MAX] = {-1};
+bool slot[MAX] = {false};
 
 void initialize();
 void bubbleSort();
@@ -19,15 +19,17 @@ int main () {
 }
 
 void initialize() {
-  profit[0] = 20;
-  profit[1] = 40;
-  profit[2] = 35;
+  profit[0] = 100;
+  profit[1] = 19;
+  profit[2] = 27;
   profit[3] = 25;
+  profit[4] = 15;
 
   deadline[0] = 2;
   deadline[1] = 1;
-  deadline[2] = 3;
+  deadline[2] = 2;
   deadline[3] = 1;
+  deadline[4] = 3;
 }
 
 void bubbleSort() {
@@ -50,9 +52,9 @@ void bubbleSort() {
 void jobSequencing() {
   for (int i = 0; i < MAX; i++) {
     for (int j = min(MAX, deadline[i])-1; j >= 0; j--) {
-      if (!visited[j]) {
-        visited[j] = true;
+      if (!slot[j]) {
         res[j] = i;
+        slot[j] = true;
         break;
       }
     }
@@ -61,7 +63,7 @@ void jobSequencing() {
 
 void printJobSequencing() {
   for (int i = 0; i < MAX; i++) {
-    if (res[i] != 0) cout << res[i] << " ";
+    if (slot[i]) cout << res[i] << " ";
   }
   cout << endl;
 }

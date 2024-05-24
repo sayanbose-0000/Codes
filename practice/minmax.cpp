@@ -30,7 +30,7 @@ void minmax(int arr[], int i, int j, int &min, int &max) {
 
   else {
     int mid = i + (j-i)/2;
-    int min1, min2,  max1, max2;
+    int min1, min2, max1, max2;
     minmax(arr, i, mid, min1, max1);
     minmax(arr, mid+1, j, min2, max2);
     max = (max2 > max1) ? max2 : max1;

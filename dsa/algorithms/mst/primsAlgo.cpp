@@ -54,6 +54,7 @@ void printMST(int parent[], int key[], int start) {
   int sum = 0;
   for (int i = 0; i < MAX; i++) {
     if (parent[i] != -1)
+      cout << parent[i] << "->" << i << " " << graph[i][parent[i]] << endl;
       sum += graph[i][parent[i]];
   }
   cout << "MST Weight is: " << sum;
