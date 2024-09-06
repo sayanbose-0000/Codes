@@ -28,7 +28,7 @@ factorial () {
     i=$((i+1))
   done
 
-  echo "$prod"
+  echo $prod
 }
 
 res=$(krishnamurty $num)
