@@ -1,0 +1,10 @@
+Name|Roll|Marks
+aaa|11|50
+bbb|5|59
+cccz|88|77
+kkk|44|55
+eeez|21|10
+hhh|88|96
+iii|22|66
+kkk|55|66
+lll|55|89
