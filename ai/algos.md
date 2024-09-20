@@ -173,28 +173,26 @@ BestFirstSearch(graph, start, goal)
 # AO Algorithm (And-Or Algorithm)
 
 ```
-1. Initialize:
-   - Add the root node to the open list.
+1. Initialization:
+    - Create an empty set OPEN and add the start node S to it.
+    - Create an empty set CLOSED.
+    - Initialize the heuristic value of the start node h(S).
+    - Initialize the cost to reach the start node g(S) = 0.
+    - Initialize the evaluation function f(S) = g(S) + h(S).
 
-2. Expand Node:
-   - Select a node from the open list to expand.
-   - If the node is a goal node, return the solution path.
-   - If the node is an AND node, expand all its children.
-   - If the node is an OR node, expand one of its children.
+2. Main Loop:
+    While OPEN is not empty, do:
+        i. Node Selection: Select a node n from OPEN with the minimum f(n) value. Remove n from OPEN and add it to CLOSED.
+        ii. Goal Test: If n is a goal node, return the solution graph containing the optimal solution tree rooted at n.
+        iii. Expansion: If n is an And node, expand all its successors. If n is an Or node, expand the best successor (with the minimum f value). 
+        iv. For   each successor n':
+            - Calculate g(n') = g(n) + c(n, n').
+            - Calculate f(n') = g(n') + h(n').
+            - If n' is not in OPEN and not in CLOSED, add n' to OPEN.
+            - If n' is in OPEN or CLOSED, update its g and f values if the new path is better.
+        iv. Update Parent: Update the parent of n' to n. If n' was already in OPEN or CLOSED, redirect its parent pointers to n.
 
-3. Evaluate Children:
-   - For each newly expanded child node:
-     - Calculate its heuristic value.
-     - If the child is a goal node, update the parent's heuristic value and mark the parent as solved.
-     - If the child is an AND node, mark the parent as solved if all children are solved.
-     - If the child is an OR node, mark the parent as solved if at least one child is solved.
-
-4. Update Open List:
-   - Remove the expanded node from the open list.
-   - Add any unsolved children to the open list.
-
-5. Repeat:
-   - Repeat steps 2-4 until the root node is marked as solved or the open list is empty.
+3. Termination: If OPEN is empty and no solution has been found, return failure.
 ```
 
 # Simple Hill Climbing ALgorithm
