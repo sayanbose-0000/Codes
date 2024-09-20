@@ -1,5 +1,4 @@
 # Depth First Search (DFS)
-
 ```
 DFS(graph, start, goal)
     stack = empty stack
@@ -26,7 +25,6 @@ DFS(graph, start, goal)
 
 
 # Breadth First Search (BFS)
-
 ```
 BFS(graph, start, goal)
     queue = empty queue
@@ -52,7 +50,6 @@ BFS(graph, start, goal)
 
 
 # Depth Limited Search (DLS)
-
 ```
 DLS(graph, start, goal, limit)
     stack = empty stack
@@ -83,7 +80,6 @@ DLS(graph, start, goal, limit)
 
 
 # Iterative Deepening Search (IDS)
-
 ```
 IDS(graph, start, limit):
     for l in range(0, limit + 1): # with every iteration increase the limit
@@ -92,7 +88,6 @@ IDS(graph, start, limit):
 
 
 # Uniform Cost Search (UCS)
-
 ```
 UCS(graph, start, goal)
     priority_queue = empty priority queue
@@ -119,7 +114,6 @@ UCS(graph, start, goal)
 
 
 # Best First Search (BFS)
-
 ```
 BestFirstSearch(graph, start, goal)
     priority_queue = empty priority queue
@@ -144,7 +138,6 @@ BestFirstSearch(graph, start, goal)
 ```
 
 # A* Algorithm
-
 ```
 1. Create two lists: open_set (to be evaluated nodes) and closed_set (already evaluated nodes).
 2. Add the starting node to open_set with an initial cost of 0.
@@ -161,7 +154,6 @@ BestFirstSearch(graph, start, goal)
 
 
 # AO Algorithm (And-Or Algorithm)
-
 ```
 1. Initialization:
     - Create an empty set OPEN and add the start node S to it.
