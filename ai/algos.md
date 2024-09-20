@@ -185,7 +185,7 @@ BestFirstSearch(graph, start, goal)
         i. Node Selection: Select a node n from OPEN with the minimum f(n) value. Remove n from OPEN and add it to CLOSED.
         ii. Goal Test: If n is a goal node, return the solution graph containing the optimal solution tree rooted at n.
         iii. Expansion: If n is an And node, expand all its successors. If n is an Or node, expand the best successor (with the minimum f value). 
-        iv. For   each successor n':
+        iv. For each successor n':
             - Calculate g(n') = g(n) + c(n, n').
             - Calculate f(n') = g(n') + h(n').
             - If n' is not in OPEN and not in CLOSED, add n' to OPEN.
