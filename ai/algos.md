@@ -239,5 +239,4 @@ Function Minimax(node, depth, maximizingPlayer):
             value = Minimax(child, depth-1, True)
             bestValue = min(bestValue, value)
         Return bestValue
-
 ```
