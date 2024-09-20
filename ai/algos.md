@@ -147,26 +147,16 @@ BestFirstSearch(graph, start, goal)
 
 ```
 1. Create two lists: open_set (to be evaluated nodes) and closed_set (already evaluated nodes).
-
 2. Add the starting node to open_set with an initial cost of 0.
-
 3. While open_set is not empty:
-
-    4. Remove the node current from open_set with the lowest f value (where f = g + h).
-
-    5. If current is the goal node, the path has been found.
-
-    6. Move current to closed_set.
-
-    7. For each neighbor of current:
-
-    8. If the neighbor is in closed_set, skip it.
-
-    9. Calculate g, h, and f values for the neighbor.
-
-    10. If the neighbor is not in open_set or has a lower g value, update its values and set its parent to current.
-
-    11. Add the neighbor to open_set if not already present.
+    - Remove the node current from open_set with the lowest f value (where f = g + h).
+    - If current is the goal node, the path has been found.
+    - Move current to closed_set.
+    - For each neighbor of current:
+    - If the neighbor is in closed_set, skip it.
+    - Calculate g, h, and f values for the neighbor.
+    - If the neighbor is not in open_set or has a lower g value, update its values and set its parent to current.
+    - Add the neighbor to open_set if not already present.
 ```
 
 
