@@ -195,6 +195,21 @@ BestFirstSearch(graph, start, goal)
         - If better then current state, it is the new current state
 ```
 
+# Steep Hill Climbing Algorithm
+```
+1. Evaluate the initial state
+2. Loop until a solution is found or there are no operations left:
+    - Generate all possible successor states by applying all available operators
+    - Evaluate each successor state
+    - Select the best successor state (the one with the highest evaluation)
+    - If the best successor state is better than the current state:
+        - Make the best successor state the new current state
+    - If no successor state is better than the current state:
+        - Terminate the algorithm (local optimum reached)
+    - If the current state is the goal state:
+        - Quit
+```
+
 # Beam Search Algorithm
 ```
 1. PQ <- Priority Queue
