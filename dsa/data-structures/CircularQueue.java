@@ -13,6 +13,7 @@ class CircularQueueImplementation {
     queue = new int[size];
   }
 
+
   boolean isEmpty() {
     return front == -1;
   }
