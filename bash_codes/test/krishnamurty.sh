@@ -22,7 +22,6 @@ do
   num=$((num / 10))
 done
 
-echo "$old_num $new_num"
 if [[ $old_num == $new_num ]]
 then 
   echo "Krishnamurty"
