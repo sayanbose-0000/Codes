@@ -1,29 +1,32 @@
-# amstrong number
+echo -n "Enter no: "
+read num
 
-num=$1
-store_num=$num
-count=0
-
-while [ $num -gt 0 ]
-do
-  num=$((num / 10))
-  count=$((count + 1))
-done
-
-num=$store_num
-
+old_num=$num
+num2=$num
 sum=0
+
+p=0
+
+while [ $num2 -gt 0 ]
+do
+  num2=$((num2 / 10))
+  p=$((p+1))
+done
+
 while [ $num -gt 0 ]
 do
-  a=$((num % 10))
-  pow=$(echo "$a^$count" | bc)
-  sum=$((sum + pow))
+  rem=$((num % 10))
+  temp=$(echo "$rem ^ $p" | bc)
+  sum=$((sum + temp))
+
   num=$((num / 10))
 done
 
-if [ $sum -eq $store_num ]
+echo "$old_num $sum $p"
+
+if [[ $old_num == $sum ]]
 then
-  echo "Amstrong Number"
+  echo "Armstrong no"
 else
-  echo "Not Amstrong Number"
+  echo "Not Armstrong no"
 fi

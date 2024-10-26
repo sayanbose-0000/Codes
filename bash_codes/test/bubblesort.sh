@@ -1,18 +1,17 @@
-echo -n "Enter array: "
-read -a nums
+echo -n "Enter arr: "
+read -a num
 
-n=${#nums[@]}
+n=${#num[*]}
 
-for ((i=0; i<n-1; i++)) {
-  for ((j=0; j<n-i-1; j++)) {
-    if [ ${nums[j]} -gt ${nums[j+1]} ]
+for ((i=0; i < n-1; i++)) {
+  for ((j=0; j < n-i-1; j++)) {
+    if [[ ${num[j+1]} -lt ${num[j]} ]]
     then
-      temp=${nums[j]}
-      nums[j]=${nums[j+1]}
-      nums[j+1]=$temp
+      temp=${num[j]}
+      num[j]=${num[j+1]}
+      num[j+1]=$temp
     fi
-    temp=${nums[j]}
   }
 }
 
-echo ${nums[@]}
+echo "Sorted: ${num[*]}"

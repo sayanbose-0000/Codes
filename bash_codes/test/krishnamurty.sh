@@ -1,38 +1,31 @@
-# Factorial Function
-fact() {
+# Krishnamurty number
+factorial() {
   n=$1
-  res=1
-  while [ $n -gt 1 ]
-  do
-    res=$((res * n))
-    n=$((n - 1))
-  done
-  echo $res
+  fact=1
+
+  for ((i=1; i<=n; i++)) {
+    fact=$((fact * i))
+  }
+
+  echo $fact
 }
 
-# Main function
-main() {
-  echo -n "Enter num: "
-  read num
+num=$1
+old_num=$num
+new_num=0
 
-  store_num=$num
+while [ $num -gt 0 ]
+do
+  rem=$((num % 10))
+  temp=$(factorial $rem)
+  new_num=$((new_num + temp))
+  num=$((num / 10))
+done
 
-  sum=0
-  while [ $num -gt 0 ]
-  do
-    rem=$((num % 10))
-    a=$(fact $rem)
-    sum=$((sum + a))
-    num=$((num / 10))
-  done
-
-  if [ $store_num -eq $sum ]
-  then
-    echo "Krishnamurty"
-  else
-    echo "Not Krishnamurty"
-  fi
-}
-
-
-main
+echo "$old_num $new_num"
+if [[ $old_num == $new_num ]]
+then 
+  echo "Krishnamurty"
+else
+  echo "Not Krishnamurty"
+fi
