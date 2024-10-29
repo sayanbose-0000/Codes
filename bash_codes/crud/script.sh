@@ -120,7 +120,6 @@ done
 
 # Output
 
-
 # User@LAPTOP-6V0P4MOJ MINGW64 /d/sayan/Codes/bash/crud (main)
 # $ sh script.sh
 # 1- create, 2- read, 3- update, 4- delete, 5- exit
