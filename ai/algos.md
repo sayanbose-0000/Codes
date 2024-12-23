@@ -121,6 +121,39 @@ UCS(graph, start, goal)
     return "Goal Not Found"
 ```
 
+# Bidirectional Search
+```
+    front_queue = empty queue  // for forward search
+    back_queue = empty queue   // for backward search
+    front_visited = empty set  // visited nodes in forward search
+    back_visited = empty set   // visited nodes in backward search
+
+    front_queue.enqueue(start)
+    back_queue.enqueue(goal)
+
+    while both front_queue and back_queue are not empty do:
+        // Forward Search Step
+        node = front_queue.dequeue()
+        if node in back_visited then
+            return "Goal Found"
+        if node not in front_visited then
+            front_visited.add(node)
+            for all neighbors of node do:
+                if neighbor not in front_visited:
+                    front_queue.enqueue(neighbor)
+
+        // Backward Search Step
+        node = back_queue.dequeue()
+        if node in front_visited then
+            return "Goal Found"
+        if node not in back_visited then
+            back_visited.add(node)
+            for all neighbors of node do:
+                if neighbor not in back_visited:
+                    back_queue.enqueue(neighbor)
+
+    return "Goal Not Found"
+```
 
 # Best First Search (BFS)
 ```
