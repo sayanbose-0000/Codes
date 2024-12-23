@@ -1,28 +1,13 @@
-# Depth First Search (DFS)
-```
-DFS(graph, start, goal)
-    stack = empty stack
-    visited = empty set
+Searches:
+1. Uninformed (Blind Search)
+    * BFS (Breadth First Search)
+    * DFS (Depth First Search) -> DLS (Depth Limited Search) -> IDS (Iterative Deepening Search)
+    * UCS (Uniform Cost Search)
+    * Bidirectional Search
 
-    stack.push(start)
-
-    while stack is not empty do
-        node = stack.pop()
-        
-        if node == goal then
-            return "Goal Found"
-        
-        if node not in visited then
-            visited.add(node)
-            
-            for all neighbours of node do
-                if neighbor not in visited then
-                    stack.push(neighbor)
-    
-    return "Goal Not Found"
-
-```
-
+2. Informed (Heuristic Search)
+    * Best First Search
+    * A* Search
 
 # Breadth First Search (BFS)
 ```
@@ -34,20 +19,44 @@ BFS(graph, start, goal)
 
     while queue is not empty do
         node = queue.dequeue()
-        
+
         if node = goal then
             return "Goal Found"
-        
+
         if node not in visited then
             visited.add(node)
-            
+
             for all neighbours of node do
                 if neighbor not in visited then
                     queue.enqueue(neighbor)
-    
+
     return "Goal Not Found"
 ```
 
+# Depth First Search (DFS)
+```
+DFS(graph, start, goal)
+    stack = empty stack
+    visited = empty set
+
+    stack.push(start)
+
+    while stack is not empty do
+        node = stack.pop()
+
+        if node == goal then
+            return "Goal Found"
+
+        if node not in visited then
+            visited.add(node)
+
+            for all neighbours of node do
+                if neighbor not in visited then
+                    stack.push(neighbor)
+
+    return "Goal Not Found"
+
+```
 
 # Depth Limited Search (DLS)
 ```
@@ -65,7 +74,7 @@ DLS(graph, start, goal, limit)
 
         if depth > limit
             continue
-        
+
         if node not in visited then
             visited.add(node)
 
@@ -106,7 +115,7 @@ UCS(graph, start, goal)
 
             for all neighbours of node do
                 if neighbor not in visited then
-                    total_cost = cost + step_cost(neighbor)  
+                    total_cost = cost + step_cost(neighbor)
                     priority_queue.enqueue((neighbor, total_cost))
 
     return "Goal Not Found"
@@ -166,7 +175,7 @@ BestFirstSearch(graph, start, goal)
     While OPEN is not empty, do:
         i. Node Selection: Select a node n from OPEN with the minimum f(n) value. Remove n from OPEN and add it to CLOSED.
         ii. Goal Test: If n is a goal node, return the solution graph containing the optimal solution tree rooted at n.
-        iii. Expansion: If n is an And node, expand all its successors. If n is an Or node, expand the best successor (with the minimum f value). 
+        iii. Expansion: If n is an And node, expand all its successors. If n is an Or node, expand the best successor (with the minimum f value).
         iv. For each successor n':
             - Calculate g(n') = g(n) + c(n, n').
             - Calculate f(n') = g(n') + h(n').
