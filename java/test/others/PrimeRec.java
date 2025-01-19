@@ -7,9 +7,8 @@ class PrimeRec {
     if (i == 0) {
       if (c == 2) System.out.println("Prime");
       else System.out.println("Non-Prime");
+      return 0;
     }
-
-    if (i == 0) return 0;
 
     if (n % i == 0) c++;
 
