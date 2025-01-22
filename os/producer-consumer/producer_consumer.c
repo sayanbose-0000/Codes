@@ -59,11 +59,11 @@ int main() {;
   pthread_t producerThread[n], consumerThread[n];
 
   for (long i = 0; i < n; i++) {
-    pthread_create(&producerThread[i], NULL, producerProcess, (void*) i);
+    pthread_create(&producerThread[i], NULL, &producerProcess, (void*) i);
   }
 
   for (long i = 0; i < n; i++) {
-    pthread_create(&consumerThread[i], NULL, consumerProcess, (void*) i);
+    pthread_create(&consumerThread[i], NULL, &consumerProcess, (void*) i);
   }
 
   for (long i = 0; i < n; i++) {

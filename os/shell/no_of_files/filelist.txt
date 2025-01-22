@@ -1,0 +1,8 @@
+cat.txt
+dog.txt
+filelist.txt
+hello.txt
+honuman.txt
+prog.sh
+
+Total files 6
