@@ -1,0 +1,7 @@
+amstrongNo.sh
+filelist.txt
+gcd.sh
+gcdNew.sh
+hello.txt
+program.sh
+testcase.txt

@@ -1,0 +1,6 @@
+a b Output
+0 3 0
+5 0 not_possible
+4 12 4
+a b not_possible
+2 5 1
