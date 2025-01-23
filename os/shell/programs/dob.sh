@@ -1,27 +1,30 @@
-main() {
-  echo -n "Enter dob (yyyy-mm-dd): "
-  read dob
+echo "Enter dob(dd-mm-yyyy): "
+read dob
 
-  today=$(date +%Y-%m-%d)
+todayDay=$(date +%d)
+todayMonth=$(date +%m)
+todayYear=$(date +%Y)
 
-  dob_seconds=$(date -d $dob +%s)
-  today_seconds=$(date -d $today +%s)
+dobDay=$(echo "$dob" | cut -d "-" -f 1)
+dobMonth=$(echo "$dob" | cut -d "-" -f 2)
+dobYear=$(echo "$dob" | cut -d "-" -f 3)
 
-  diff=$(( today_seconds - dob_seconds ))
+calcDay=0
+calcMonth=0
+calcYear=0
 
-  years=$(( diff / (60*60*24*365) ))
-  temp=$(( diff % (60*60*24*365) ))
+calcDay=$((todayDay - dobDay))
+calcMonth=$((todayMonth - dobMonth))
+calcYear=$((todayYear - dobYear))
 
-  months=$(( temp / (60*60*24*30) ))
-  temp=$(( temp % (60*60*24*30) ))
+if ((calcDay < 0)); then
+  calcDay=$((calcDay + 30))
+  calcMonth=$((calcMonth - 1))
+fi
 
-  days=$(( temp / (60*60*24) ))
+if ((calcMonth < 0)); then
+  calcMonth=$((calcMonth + 12))
+  calcYear=$((calcYear - 1))
+fi
 
-  echo "You are $years years, $months months and $days days old"
-
-  if [ "$days" -eq "0" ] && [ "$months" -eq "0" ]; then
-    echo "Happy Birthday"
-  fi
-}
-
-main
+echo "$calcYear years, $calcMonth months and $calcDay days old"
