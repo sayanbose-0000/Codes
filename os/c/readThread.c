@@ -10,37 +10,35 @@
 #include <pthread.h>
 #include <semaphore.h>
 
-sem_t sem;
+sem_t sem1,sem2;
 int a, b, sum;
 
 void* readA() {
-  sem_wait(&sem);
-
   printf("Enter a: ");
   scanf("%d", &a);
 
-  sem_post(&sem);
+  sem_post(&sem1);
 }
 
 void* readB() {
-  sem_wait(&sem);
+  sem_wait(&sem1);
 
   printf("Enter b: ");
   scanf("%d", &b);
 
-  sem_post(&sem);
+  sem_post(&sem2);
 }
 
 void* sumAB() {
-  sem_wait(&sem);
+  sem_wait(&sem2);
 
   printf("Sum is: %d\n", (a+b));
 
-  sem_post(&sem);
 }
 
 int main() {
-  sem_init(&sem, 0, 1);
+  sem_init(&sem1, 0, 0);
+  sem_init(&sem2, 0, 0);
 
   pthread_t thread1, thread2, thread3;
 
