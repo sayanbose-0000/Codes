@@ -1,3 +1,23 @@
 *.class
 *.exe
 *.out
+
+
+# Target directory (compiled binaries and dependencies)
+target/
+
+# Build artifacts
+**/*.rs.bk
+
+# Cargo lock file (optional for libraries)
+Cargo.lock
+
+# Package metadata and cache
+/.cargo/
+.cargo-lock
+
+# Generated docs
+/target/doc/
+
+# Incremental compilation files
+/target/.rustc_info.json
