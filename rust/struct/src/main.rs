@@ -16,7 +16,7 @@ impl Rectangle {
         (self.length * l) * (self.breadth * b)
     }
 
-    // similar to static function -> can be accessed through struct name 'Rectangle::disp()'✔️ but not through obj 'rect1.debug()' ❌
+    // similar to static function. Can be accessed through struct name 'Rectangle::disp()'✔️ but not through obj 'rect1.debug()' ❌
     fn disp() {
         // methods declared WITHOUT '&self' are static methods
         println!("This is a static method!");
@@ -38,7 +38,7 @@ fn main() {
         rect1.increased_size_area(2, 4)
     );
 
-    // print!("{}", rect1.debug()) // not accessible as debug is a static method❌
+    // print!("{}", rect1.debug()) // not accessible as debug is a static method ❌
 
     Rectangle::disp(); // accessible like this ✔️
 }
