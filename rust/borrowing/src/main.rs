@@ -7,10 +7,7 @@ fn main() {
     let s4: &String = &s3;
     println!("Function main: {}", s4);
 
-
-
     let s1: String = String::from("Hello World");
     borrowing(&s1);
     println!("Function main: {}", s1);
-
 }
