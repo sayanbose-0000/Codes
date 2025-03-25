@@ -1,14 +1,24 @@
-// Stack contains variable, that may point to a dynamic variable in heap
-// Ownership-  The variable in stack owns the data in heap, if the variable in  stack goes out of scope, the heap is cleaned automatically
-
-// So say let s = String::from("Hello"); -> Here 's' variable is stored in stack and the actual string is stored in heap. When 's' goes out of scope in 
-// stack, the corresponding string in heap is auto deleted, as 's' is the owner and owner goes out of scope
-
-fn create_string() -> String {
-    let str = String::from("Hello"); // "Hello" stored in heap, str variable stored in stack and points to heap where "Hello is stored", str is owner
-    return str; // str goes out of scope, as str is owner of "Hello", "Hello" also gets dropped from memory
-}
+// THREE IMPORTANT RULES OF OWNERSHIP SHOWN
 
 fn main() {
-    println!("{:?}", create_string());
+    // RULE 1: EACH VALUE IN RUST HAS ITS OWN OWNER
+    let s1: String = String::from("Hello"); // s1 owner of string "Hello"
+    let len: usize = calculate_size(&s1); // Just a reference is passed, s1 is still the owner
+    println!("s1: {}, len s1: {} ", s1, len);
+
+    // RULE 2: THERE CAN ONLY BE ONE OWNER AT A TIME
+    let s2: String = s1;
+    // println!("{}", s1); // causes error since s1 no longer has ownership over the string
+    println!("{}", s2);
+
+    // RULE 3: WHEN OWNER GOES OUT OF SCOPE, VALUE IS DROPPED
+    {
+        let s3: String = String::from("Hi");
+        println!("{}", s3);
+    }
+    // println!("{}", s3); // cannot be accessed here
+}
+
+fn calculate_size(s: &str) -> usize {
+    s.len()
 }
