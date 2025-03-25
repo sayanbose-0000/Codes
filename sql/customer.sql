@@ -140,3 +140,4 @@ SQL> select cust_id, first_name, last_name, maritial_status, sex, income from cu
          5 Charlie         Brown           Single     M   75000.25
          6 David           Miller          Married    M   80000.65
          7 Eva             Davis           Single     F    95000.9
+

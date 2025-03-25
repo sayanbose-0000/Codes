@@ -1,0 +1,6 @@
+To start oracle-db
+================
+
+sqlplus
+username- system
+password- sayanbose123
