@@ -1,7 +1,7 @@
 import java.util.Stack;
 import java.util.Scanner;
 
-class PostFixMain {
+class PostfixMain {
   static String postFixEval(String input) {
     Stack<String> s = new Stack<String>();
     String res = "";
@@ -10,39 +10,41 @@ class PostFixMain {
 
     int i = 1;
     while (!s.isEmpty() && i < input.length()) {
+      // If it is an operator
       if (input.charAt(i) == '+' || input.charAt(i) == '-' || input.charAt(i) == '*' || input.charAt(i) == '/') {
         int operandOne = Integer.parseInt(s.pop());
         int operandTwo = Integer.parseInt(s.pop());
-        int operand = input.charAt(i);
+
+        int operator = input.charAt(i);
 
         int eval = 0;
-        switch (operand) {
+        switch (operator) {
           case '+':
-            eval = operandOne + operandTwo;
+            eval = operandTwo + operandOne;
             break;
           case '-': 
-            eval = operandOne - operandTwo;
+            eval = operandTwo - operandOne;
             break;
           case '*': 
-            eval = operandOne * operandTwo;
+            eval = operandTwo * operandOne;
             break;
           case '/': 
-            eval = operandOne / operandTwo;
+            eval = operandTwo / operandOne;
             break;
         }
 
         s.push(String.valueOf(eval));
       } 
       
+      // It is an operand
       else {
         s.push("" + input.charAt(i));
       }
 
-      res += s.peek();
-      System.out.println(res);
       i++;
     }
 
+    res = s.pop();
     return res;
   }
 

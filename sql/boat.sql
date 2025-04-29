@@ -215,3 +215,143 @@ s58  Mary            Beth            Lyon                    10         35
 s71  Zorba                           Alex                    10         16
 
 12 rows selected.
+
+
+-- 11 12 14 15 17 20 21 25 26 30a 30b 35
+
+--  11) Select names of sailors who have reserved boat 104
+
+SQL> select Sailor.sname from Sailor, Reserve where Sailor.sid = Reserve.sid and Reserve.bid = 104; 
+
+SNAME
+---------------
+Fredrico
+Lubber
+
+-- 12) Find sid of sailors who have reserved red boat
+
+SQL> select Sailor.sname from Sailor, Reserve, Boat where Sailor.sid = Reserve.sid and Reserve.bid = Boat.bid and Boat.color = 'red'; 
+
+SNAME
+---------------
+Fredrico
+Fredrico
+Lubber
+Lubber
+Horatio
+Deep
+Deep
+
+7 rows selected.
+
+
+-- 14) Select records for name containing 'B'/'b'.
+
+SQL> select sname from Sailor where sname like '%b%' or sname like '%B'; 
+
+SNAME
+---------------
+Lubber
+Zorba
+
+
+-- 15) Select names for middle name present.
+
+SQL> select sname || ' ' || mname || ' ' || surname from Sailor where mname is not null; 
+
+SNAME||''||MNAME||''||SURNAME
+-----------------------------------------------
+Mary Beth Lyon
+Deep Graceb Davis
+Sara Art Powell
+Deep Kumar Kumar
+Deep Kumar Jha
+
+
+-- 17) Find color of boats reserved by Lubber.
+
+SQL> select unique Boat.color from Sailor, Reserve, Boat where Sailor.sid = Reserve.sid and Reserve.bid = Boat.bid and Sailor.sname = 'Lubber'; 
+
+COLOR
+------
+red
+green
+
+
+-- 20) Compute the increments of rating of persons who have sailed on diff boats on the same day
+
+SQL> select distinct S.sname from Sailor S, Reserve R1, Reserve R2 where S.sid = R1.sid and R1.bid != R2.bid and R1.sid = R2.sid and R1.day = R2.day; 
+
+SNAME
+---------------
+Fredrico
+
+-- 21) Find name of sailors whose name begins and ends with B and has at least 3 characters
+
+SQL> select sname from Sailor where sname like 'B%B' and length(sname) >= 3; 
+
+no rows selected
+
+-- 25) Find names of sailors who have reserved boat 103. 
+
+SQL> select Sailor.sname from Sailor, Reserve where Sailor.sid = Reserve.sid and Reserve.bid = '103';
+
+SNAME
+---------------
+Fredrico
+Lubber
+Horatio
+
+-- 26) Find names of sailors who have reserved red boat.
+
+SQL> select distinct Sailor.sname from Sailor, Reserve, Boat where Sailor.sid = Reserve.sid and Reserve.Bid = Boat.bid and Boat.color = 'red';
+
+SNAME
+---------------
+Fredrico
+Lubber
+Horatio
+Deep
+
+
+-- 30 a) Find all records for the rating > some sailor name where sailor name like 'Horatio;
+
+SQL> select S1.sname || ' ' || S1.surname as SailorName from Sailor S1, Sailor S2 where S2.sname = 'Horatio' and S1.rating > S2.rating;      
+
+SAILORNAME
+-------------------------------
+Lubber Sheen
+Charlotte Gordin
+Mary Lyon
+Zorba Alex
+Horatio Forrest
+Deep Jha
+Mary Lyon
+Zorba Alex
+
+8 rows selected.
+
+-- 30 b) Find all records for the ratingsall sailor name schere sailor name like "Horatie.
+
+SQL> select S1.sname || ' ' || S1.surname as SailorName from Sailor S1, Sailor S2 where S2.sname = 'Horatio' and S1.rating > S2.rating;      
+
+SAILORNAME
+-------------------------------
+Lubber Sheen
+Charlotte Gordin
+Mary Lyon
+Zorba Alex
+Horatio Forrest
+Deep Jha
+Mary Lyon
+Zorba Alex
+
+8 rows selected.
+
+-- 35) Find average age of sailors with rating 10
+
+SQL> select avg(age) from Sailor where rating = 10;     
+
+  AVG(AGE)
+----------
+      25.5
