@@ -32,7 +32,7 @@ int main() {
   printf("Enter your polynomial : ");
   scanf("%s", &poly);
 
-  // the divident(actual data) stored in a seperate place called original_data
+  // the dividend(actual data) stored in a seperate place called original_data
   char original_data[50];
   for (int i = 0; i < strlen(str); i++) {
     original_data[i] = str[i];
