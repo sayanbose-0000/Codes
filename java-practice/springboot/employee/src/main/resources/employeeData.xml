@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans
+  xmlns="http://www.springframework.org/schema/beans"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:util="http://www.springframework.org/schema/util"
+  xsi:schemaLocation="
+		http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/util https://www.springframework.org/schema/util/spring-util.xsd"
+>
+
+	<!-- Department -->
+	<bean id="hr" class="com.example.employee.model.Department">
+	  <property name="id" value="HR" />
+		<property name="name" value="Human Resource" />
+	</bean>
+
+	<bean id="sde" class="com.example.employee.model.Department">
+	  <property name="id" value="SDE" />
+		<property name="name" value="Software Developer" />
+	</bean>
+
+	<bean id="da" class="com.example.employee.model.Department">
+	  <property name="id" value="DA" />
+		<property name="name" value="Data Analyst" />
+	</bean>
+
+
+	<!-- Skills -->
+	<bean id="java" class="com.example.employee.model.Skills">
+	  <property name="id" value="JAVA" />
+		<property name="desc" value="Java 8+" />
+	</bean>
+
+	<bean id="web" class="com.example.employee.model.Skills">
+	  <property name="id" value="WEB" />
+		<property name="desc" value="Html, Css, Js, React, Angular" />
+	</bean>
+
+	<bean id="aiml" class="com.example.employee.model.Skills">
+	  <property name="id" value="AIML" />
+		<property name="desc" value="Artificial Intelligence and Machine Learning" />
+	</bean>
+
+
+	<!-- Employee -->
+	<bean id="emp1" class="com.example.employee.model.Employee">
+	  <property name="id" value="1" />
+		<property name="name" value="Raju Singh" />
+		<property name="dept" ref="sde" />
+		<property name="skills">
+		  <list>
+				 <ref bean="java" />
+				 <ref bean="web" />
+			</list>
+		</property>
+	</bean>
+
+	<bean id="emp2" class="com.example.employee.model.Employee">
+	  <property name="id" value="2" />
+		<property name="name" value="Akash Sengupta" />
+		<property name="dept" ref="hr" />
+		<property name="skills">
+		  <list>
+				<ref bean="aiml" />
+				<ref bean="web" />
+				<ref bean="java" />
+			</list>
+		</property>
+	</bean>
+
+	<bean id="emp3" class="com.example.employee.model.Employee">
+	  <property name="id" value="3" />
+		<property name="name" value="Soumili Ghosh" />
+		<property name="dept" ref="da" />
+		<property name="skills">
+		  <list>
+  		  <ref bean="aiml" />
+  		  <ref bean="web" />
+			</list>
+		</property>
+	</bean>
+</beans>

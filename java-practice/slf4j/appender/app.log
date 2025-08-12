@@ -1,0 +1,3 @@
+12:26:16.318 [main] INFO  com.org.Main - This is an info
+12:26:16.323 [main] ERROR com.org.Main - This is an error message
+12:26:16.324 [main] WARN  com.org.Main - This is a warning
